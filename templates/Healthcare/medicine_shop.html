@@ -1,0 +1,24 @@
+{% extends 'hospital/patient_base.html' %}
+{% load static %}
+{% block content %}
+
+
+<div class="container mt-5 ml-4">
+    <h1>Medicine Shop</h1>
+    <div class="row">
+        {% for medicine in medicines %}
+        <div class="col-md-4 mt-4">
+            <div class="card mb-4 shadow-sm">
+                <img src="{{ medicine.image.url }}" class="card-img-top mx-5" alt="{{ medicine.name }}" style="height:10rem; width:10rem;">
+                <div class="card-body">
+                    <h5 class="card-title">{{ medicine.name }}</h5>
+                    <p class="card-text">{{ medicine.description }}</p>
+                    <p class="card-text"><strong>Price:</strong> {{ medicine.price }}</p>
+                    <a href="{% url 'purchase_medicine' medicine.pk %}" class="btn btn-primary" style="width:100%;">Purchase</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

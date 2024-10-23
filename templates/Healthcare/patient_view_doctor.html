@@ -1,0 +1,86 @@
+{% extends 'hospital/patient_base.html' %}
+{% block content %}
+{%load static%}
+
+<head>
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+  <style media="screen">
+    a:link {
+      text-decoration: none;
+    }
+
+    h6 {
+      text-align: center;
+    }
+
+    .row {
+      margin: 100px;
+    }
+
+
+    .card {
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: left;
+      align-items: left; 
+      font-family: 'Roboto', sans-serif;
+    }
+    .card-img-top {
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      margin: 5px auto;
+      padding:0px;
+      width: 200px;
+      height: auto;
+    }
+
+
+  </style>
+</head>
+
+
+<div class="container">
+
+    <form  action="/searchdoctor" method="get" style="margin-left:70%;" class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" name="query" id="query" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+ 
+
+  <div class="container mt-5">
+  {% if doctors %}
+    <div class="row">
+      {% for d in doctors %}
+      <div class="col-md-4">
+        <div class="card mb-4">
+          <img class="card-img-top" src="{{ d.profile_pic.url }}" alt="Profile Pic">
+
+          <div class="card-body">
+            <h4 class="card-title text-center"><b>{{ d.get_name }}</b></h4>
+            {% comment %} <p class="card-text"> {% endcomment %}
+              <strong>Mobile:</strong> {{ d.mobile }}<br>
+              <strong>Speciality:</strong> {{ d.address }}<br>
+              <strong>Department:</strong> {{ d.department }}<br>
+              <strong>Available in:</strong> {{ d.work_days }}
+              <strong>Times:</strong> {{ d.times }}<br>
+            {% comment %} </p> {% endcomment %}
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  {% else %}
+    <div class="text-center">
+      <h4 style="color: red;">No Doctor Found !!!</h4>
+    </div>
+  {% endif %}
+</div>
+
+
+</div>
+
+{% endblock content %}

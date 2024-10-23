@@ -1,0 +1,110 @@
+{% extends 'hospital/doctor_base.html' %}
+{% load static %}
+{% block content %}
+<br><br>
+
+
+<div class="container mt-5">
+    <h1 class="mt-4 ml-3">Heart Disease Prediction</h1><br><br>
+    <form method="post" id="heart-disease-form" action="{% url 'predict_heart_disease' %}">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="age">Age</label>
+            <input type="number" class="form-control" id="age" name="age" required>
+        </div>
+        <div class="form-group">
+            <label for="sex">Sex</label>
+            <input type="number" class="form-control" id="sex" name="sex" required>
+        </div>
+        <div class="form-group">
+            <label for="cp">Chest Pain Type</label>
+            <input type="number" class="form-control" id="cp" name="cp" required>
+        </div>
+        <div class="form-group">
+            <label for="trestbps">Resting Blood Pressure</label>
+            <input type="number" class="form-control" id="trestbps" name="trestbps" required>
+        </div>
+        <div class="form-group">
+            <label for="chol">Cholesterol</label>
+            <input type="number" class="form-control" id="chol" name="chol" required>
+        </div>
+        <div class="form-group">
+            <label for="fbs">Fasting Blood Sugar</label>
+            <input type="number" class="form-control" id="fbs" name="fbs" required>
+        </div>
+        <div class="form-group">
+            <label for="restecg">Resting ECG Results</label>
+            <input type="number" class="form-control" id="restecg" name="restecg" required>
+        </div>
+        <div class="form-group">
+            <label for="thalach">Maximum Heart Rate Achieved</label>
+            <input type="number" class="form-control" id="thalach" name="thalach" required>
+        </div>
+        <div class="form-group">
+            <label for="exang">Exercise Induced Angina</label>
+            <input type="number" class="form-control" id="exang" name="exang" required>
+        </div>
+        <div class="form-group">
+            <label for="oldpeak">Oldpeak</label>
+            <input type="number" class="form-control" id="oldpeak" name="oldpeak" required>
+        </div>
+        <div class="form-group">
+            <label for="slope">Slope</label>
+            <input type="number" class="form-control" id="slope" name="slope" required>
+        </div>
+        <div class="form-group">
+            <label for="ca">Number of Major Vessels</label>
+            <input type="number" class="form-control" id="ca" name="ca" required>
+        </div>
+        <div class="form-group">
+            <label for="thal">Thal</label>
+            <input type="number" class="form-control" id="thal" name="thal" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Predict</button>
+    </form>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="resultModal" tabindex="-1" role="dialog" aria-labelledby="resultModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="resultModalLongTitle">Prediction Result</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="result-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.getElementById('heart-disease-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        var form = event.target;
+        var formData = new FormData(form);
+
+        fetch(form.action, {
+            method: form.method,
+            body: formData,
+        }).then(response => response.json()).then(data => {
+            document.getElementById('result-body').innerText = data.result;
+            $('#resultModal').modal('show');
+        }).catch(error => {
+            console.error('Error:', error);
+        });
+    });
+</script>
+
+
+
+
+
+{% endblock %}

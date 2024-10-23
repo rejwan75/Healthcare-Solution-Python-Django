@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+
+{% load widget_tweaks %}
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>XYZ Healthcare</title>
+  <style type="text/css">
+    body {
+      color: #aa082e;
+      background-color: #b6bde7;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    a:link {
+      text-decoration: none;
+    }
+
+    .note {
+      text-align: center;
+      height: 80px;
+      background: -webkit-linear-gradient(left, #0072ff, #8811c5);
+      color: #fff;
+      font-weight: bold;
+      line-height: 80px;
+    }
+
+    .form-content {
+      padding: 5%;
+      border: 1px solid #ced4da;
+      margin-bottom: 2%;
+    }
+
+    .form-control {
+      border-radius: 1.5rem;
+    }
+
+    .btnSubmit {
+      border: none;
+      border-radius: 1.5rem;
+      padding: 1%;
+      width: 20%;
+      cursor: pointer;
+      background: #0062cc;
+      color: #fff;
+    }
+  </style>
+
+</head>
+
+
+<body>
+  {% include "hospital/navbar.html" %}
+  <br>
+  <br>
+  <br>
+  <br>
+
+
+
+<!-- signup page for doctor by admin(sumit) -->
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  <div class="container register-form">
+      <div class="form">
+          <div class="note">
+              <p>Register In Hospital</p>
+          </div>
+          <div class="form-content">
+              <div class="row">
+                  <div class="col-md-6">
+                      <div class="form-group">
+                          <input type="text" name="first_name" class="form-control" placeholder="First Name" required>
+                      </div>
+                      <div class="form-group">
+                          <input type="text" name="username" class="form-control" placeholder="Username" required>
+                      </div>
+                      <div class="form-group">
+                          <select name="department" class="form-control" required>
+                              <option value="Cardiologist">Cardiologist</option>
+                              <option value="Dermatologist">Dermatologist</option>
+                              <!-- Add other departments as needed -->
+                          </select>
+                      </div>
+                      <div class="form-group">
+                          <input type="text" name="address" class="form-control" placeholder="Speciality" required>
+                      </div>
+                      <div class="form-group">
+                          <input type="text" name="times" class="form-control" placeholder="Times" required>
+                      </div>
+                  </div>
+                  <div class="col-md-6">
+                      <div class="form-group">
+                          <input type="text" name="last_name" class="form-control" placeholder="Last Name" required>
+                      </div>
+                      <div class="form-group">
+                          <input type="password" name="password" class="form-control" placeholder="Password" required>
+                      </div>
+                      <div class="form-group">
+                          <input type="text" name="mobile" class="form-control" placeholder="Mobile" required>
+                      </div>
+                      <div class="form-group">
+                          <input type="file" name="profile_pic" class="form-control" placeholder="Profile Picture" required>
+                      </div>
+                      <div class="form-group">
+                          <input type="text" name="work_days" class="form-control" placeholder="Work Days" required>
+                      </div>
+                  </div>
+              </div>
+              <button type="submit" class="btnSubmit">Register</button>
+              <div class="text-center">Already have an account? <a href="doctorlogin">Login here</a></div>
+          </div>
+      </div>
+  </div>
+</form>
+
+
+
+  {% include "hospital/footer.html" %}
+</body>
+
+
+</html>

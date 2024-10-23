@@ -1,0 +1,36 @@
+{% extends 'hospital/admin_base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container mt-5">
+    <h1 class="mt-4 ml-3">Admin Dashboard</h1><br><br>
+    <h2>Test Orders</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Test Name</th>
+                <th>Patient Name</th>
+                <th>Address</th>
+                <th>Phone Number</th>
+                <th>Payment Method</th>
+                <th>Transaction ID</th>
+                <th>Order Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for order in orders %}
+            <tr>
+                <td>{{ order.test.name }}</td>
+                <td>{{ order.patient_name }}</td>
+                <td>{{ order.address }}</td>
+                <td>{{ order.phone_number }}</td>
+                <td>{{ order.payment_method }}</td>
+                <td>{{ order.transaction_id }}</td>
+                <td>{{ order.order_date }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

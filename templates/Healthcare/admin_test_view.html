@@ -1,0 +1,88 @@
+{% extends 'hospital/admin_base.html' %}
+{% load static %}
+{% block content %}
+<br><br><br>
+
+
+<h2 class="ml-5">Test Management</h2>
+
+
+
+<div class="row ml-5 mt-5">
+    <div class="col-md-6">
+        <a type="button" class="btn btn-success mb-3" href="{% url 'admin_test_add' %}">Add New</a>
+    </div>
+    <div class="col-md-5">
+        <form method="get" action="{% url 'admin_test_view' %}" class="form-inline mb-3">
+            <input type="text" name="q" class="form-control mr-sm-2" placeholder="Search tests" value="{{ query }}">
+            <button type="submit" class="btn btn-outline-success my-2 my-sm-0">Search</button>
+        </form>
+    </div>
+</div>
+
+
+
+<table class="table col-md-11 ml-5">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for test in tests %}
+        <tr>
+            <td>{{ test.name }}</td>
+            <td>{{ test.description }}</td>
+            <td>{{ test.price }}</td>
+
+            <td>
+                <a href="{% url 'admin_test_edit' test.pk %}" class="btn btn-warning btn-sm"  style="color:white; background-color:#006a4e"><i class="fa-solid fa-pen"></i></a>
+                <form method="post" action="{% url 'admin_test_delete' test.pk %}" style="display:inline;">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger btn-sm"  style="color:white; background-color:#f42a41"><i class="fa-solid fa-trash"></i></button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+
+
+
+<div class="container mt-5 pt-5">
+    <h3 class="ml-5">Ordered Tests</h3>
+    <table class="table table-striped  col-md-11 ml-5">
+        <thead>
+            <tr>
+                <th>Test Name</th>
+                <th>Patient Name</th>
+                <th>Address</th>
+                <th>Phone Number</th>
+                <th>Payment Method</th>
+                <th>Transaction ID</th>
+                <th>Order Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for order in orders %}
+            <tr>
+                <td>{{ order.test.name }}</td>
+                <td>{{ order.patient_name }}</td>
+                <td>{{ order.address }}</td>
+                <td>{{ order.phone_number }}</td>
+                <td>{{ order.payment_method }}</td>
+                <td>{{ order.transaction_id }}</td>
+                <td>{{ order.order_date }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+
+
+{% endblock %}
