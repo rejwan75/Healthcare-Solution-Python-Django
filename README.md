@@ -1,17 +1,4 @@
-
-# Hospital Management
-![developer](https://img.shields.io/badge/Developed%20By%20%3A-Sumit%20Kumar-red)
----
-## screenshots
-### Homepage
-![homepage snap](https://github.com/sumitkumar1503/hospitalmanagement/blob/master/static/screenshots/homepage.png?raw=true)
-### Admin Dashboard
-![dashboard snap](https://github.com/sumitkumar1503/hospitalmanagement/blob/master/static/screenshots/admin_dashboard.png?raw=true)
-### Invoice
-![invoice snap](https://github.com/sumitkumar1503/hospitalmanagement/blob/master/static/screenshots/invoice.png?raw=true)
-### Doctor list
-![doctor snap](https://github.com/sumitkumar1503/hospitalmanagement/blob/master/static/screenshots/admin_doctor.png?raw=true)
----
+In this work, we present a full stack web application incorporating predictive analytics to improve healthcare services- Smart Healthcare Solutions. Users can book doctor ap- pointments using this Platform, Schedule diagnostic tests online and also read medical report of all patients and order their medicines as well. Doctors can also predict the on- set of a disease and proactively manage healthcare using machine learning algorithms
 ## Functions
 ### Admin
 - Signup their account. Then Login (No approval Required).
@@ -26,6 +13,7 @@
 - Can view their discharged(by admin) patient list.
 - Can view their Appointments, booked by admin.
 - Can delete their Appointment, when doctor attended their appointment.
+-  predictive analysis
 
 ### Patient
 - Create account for admit in hospital. Then Login (Approval required by hospital admin, Then only patient can login).
@@ -34,6 +22,9 @@
 - Can book appointments.(approval required by admin)
 - Can view/download Invoice pdf (Only when that patient is discharged by admin).
 
+### Medicine store
+- Patient buy medicine as per doctor pescription.
+- Admin add various type of madicine , number of stock and edit . 
 ---
 
 ## HOW TO RUN THIS PROJECT
@@ -56,17 +47,6 @@ py manage.py runserver
 http://127.0.0.1:8000/
 ```
 
-## CHANGES REQUIRED FOR CONTACT US PAGE
-- In settins.py file, You have to give your email and password
-```
-EMAIL_HOST_USER = 'youremail@gmail.com'
-EMAIL_HOST_PASSWORD = 'your email password'
-EMAIL_RECEIVING_USER = 'youremail@gmail.com'
-```
-- Login to gmail through host email id in your browser and open following link and turn it ON
-```
-https://myaccount.google.com/lesssecureapps
-```
 ## Drawbacks/LoopHoles
 - Any one can be Admin. There is no Approval required for admin account. So you can disable admin signup process and use any logic like creating superuser.
 - There should be at least one doctor in hospital before admitting patient. So first add doctor.
@@ -75,7 +55,4 @@ https://myaccount.google.com/lesssecureapps
 ## Disclaimer
 This project is developed for demo purpose and it's not supposed to be used in real application.
 
-## Feedback
-Any suggestion and feedback is welcome. You can message me on facebook
-- [Contact on Facebook](https://fb.com/sumit.luv)
-- [Subscribe my Channel LazyCoder On Youtube](https://youtube.com/lazycoders)
+
