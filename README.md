@@ -56,3 +56,4 @@ http://127.0.0.1:8000/
 This project is developed for demo purpose and it's not supposed to be used in real application.
 
 
+![Homepage](https://github.com/user-attachments/assets/530d3c56-4913-45ae-8ca7-78db08f89ec7)
