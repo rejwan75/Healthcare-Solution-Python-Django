@@ -48,12 +48,24 @@ http://127.0.0.1:8000/
 ```
 
 ## Drawbacks/LoopHoles
-- Anyone can be an Admin. No approval is required for the admin account. So you can disable the admin signup process and use any logic like creating superuser.
-- There should be at least one doctor in hospital before admitting patient. So first add doctor.
-- On update page of doctor/patient you must have to update password.
+- Anyone can be an Admin. No approval is required for the admin account. So you can disable the admin signup process and use any logic like creating a superuser.
+- There should be at least one doctor in the hospital before admitting a patient. So first add doctor.
+- On the update page of the doctor/patient you must update the password.
 
 ## Disclaimer
-This project is developed for demo purpose and it's not supposed to be used in real application.
+This project is developed for demo purposes and it's not supposed to be used in real applications.
 
-
+##Screenshots
+Homepage
 ![Homepage](https://github.com/user-attachments/assets/530d3c56-4913-45ae-8ca7-78db08f89ec7)
+
+Admin Portal
+![Admin Portal](https://github.com/user-attachments/assets/36d781df-4f71-4a6a-9dd8-dcd92cfbb1e2)
+
+Doctor Portal
+![Doctor](https://github.com/user-attachments/assets/6c2872aa-0f8d-4fc5-aea1-63a80cfd4b4f)
+
+Patient Portal
+![Patient Portal](https://github.com/user-attachments/assets/56ff5db6-66fc-4145-830a-99e729f253ef)
+
+
