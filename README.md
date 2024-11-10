@@ -52,8 +52,6 @@ http://127.0.0.1:8000/
 - There should be at least one doctor in the hospital before admitting a patient. So first add doctor.
 - On the update page of the doctor/patient you must update the password.
 
-## Disclaimer
-This project is developed for demo purposes and it's not supposed to be used in real applications.
 
 ##Screenshots
 Homepage
